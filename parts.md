@@ -16,11 +16,11 @@ https://www.moergo.com/collections/mbk-keycaps
 
 ## Controllers, boards, parts
 
-* 2x [Mill Max Low Profile Sockets; Set of Sockets with Headers](https://splitkb.com/products/mill-max-low-profile-sockets?variant=47060695646555)
-* 2x [Mill Max Low Profile Sockets; Set of Sockets](https://splitkb.com/products/mill-max-low-profile-sockets?variant=31945995812941) to add between socketed controller and board to increase height available for battery (601230 instead of 301230)
 * 1x [Kyria rev3 PCB Kit; Switch compatibility Choc Hotswap](https://splitkb.com/products/kyria-rev3?variant=43642869612803): left + right PCB, SMD diodes and resistors, reset buttons, TRRS jacks (unused)
 * 2x [nice!nano Wireless Microcontroller; Revision 2.0](https://splitkb.com/products/nice-nano?variant=39408154116173)
+* 2x [Mill Max Low Profile Sockets; Set of Sockets with Headers](https://splitkb.com/products/mill-max-low-profile-sockets?variant=47060695646555)
 * 1x [Wireless Controller Expansion Bundle](https://splitkb.com/products/wireless-controller-expansion-bundle?variant=42344261288195): power switches, JST jacks/plugs/terminals for the battery
+* 2x [Mill Max Low Profile Sockets; Set of Sockets](https://splitkb.com/products/mill-max-low-profile-sockets?variant=31945995812941) to add between socketed controller and board to increase height available for battery (601230 instead of 301230)
 * 1x [Keycap and Switch Puller](https://splitkb.com/products/switch-and-keycap-puller?variant=33314105753677)
 
 ## Case
