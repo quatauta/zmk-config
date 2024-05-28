@@ -1,2 +1,3 @@
 .vscode/
-work/
+_build
+_firmware
