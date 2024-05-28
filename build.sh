@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o pipefail
+set -eo pipefail
 
 _main() {
   _exec_in_container
