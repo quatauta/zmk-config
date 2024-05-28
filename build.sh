@@ -10,8 +10,8 @@ _main() {
   project_dir="$(realpath .)"
   base_dir="/_build/zmk-config"
   config_path="config"
-  archive_name="firmware"
   zmk_load_arg=" -DZMK_EXTRA_MODULES='${project_dir}'"
+  local timestamp="$(date +%F_%H%M%S)"
 
   if [ "${base_dir}" != "${project_dir}" ]; then
     mkdir -p "${base_dir}/${config_path}"
@@ -21,11 +21,11 @@ _main() {
   cd "${base_dir}" || exit 1
 
   _west_prepare "${base_dir}" "${config_path}"
-  _west_compile "${base_dir}" "${config_path}" nice_nano_v2 kyria_rev3_left
-  _west_compile "${base_dir}" "${config_path}" nice_nano_v2 kyria_rev3_right
+  _west_compile "${base_dir}" "${config_path}" "${timestamp}" nice_nano_v2 kyria_rev3_left
+  _west_compile "${base_dir}" "${config_path}" "${timestamp}" nice_nano_v2 kyria_rev3_right
 
   echo
-  ls -lh /_firmware
+  ls -lh "/_firmware/${timestamp}"
 }
 
 _west_prepare() {
@@ -40,14 +40,15 @@ _west_prepare() {
 _west_compile() {
   local base_dir="$1"
   local config_path="$2"
-  local board="$3"
-  local shield="$4"
+  local timestamp="$3"
+  local board="$4"
+  local shield="$5"
 
   local build_dir="$(realpath "${base_dir}/../${board}-${shield}")"
-  local artifacts_dir="/_firmware"
   local extra_cmake_args="-DSHIELD='${shield}'${zmk_load_arg}"
   local display_name="${shield} - ${board}"
-  local artifact_name="zmk.$(date +%F_%H%M%S).${board}-${shield}"
+  local artifacts_dir="/_firmware/${timestamp}"
+  local artifact_name="zmk.${timestamp}.${board}-${shield}"
 
   mkdir -pv "${build_dir}" "${artifacts_dir}"
   west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" ${extra_cmake_args} ${cmake_args}
@@ -76,7 +77,12 @@ _start_container_runtime() {
 _exec_in_container() {
   if [[ ! -f /.dockerenv ]] ; then
     _start_container_runtime
-    exec docker run --rm -it -v .:/app -v ./_build:/_build -v ./_firmware:/_firmware zmkfirmware/zmk-build-arm:stable "/app/$(basename "$0")"
+    exec docker run --rm -it \
+      -v .:/app \
+      -v ./_build:/_build \
+      -v ./_firmware:/_firmware \
+      zmkfirmware/zmk-build-arm:stable \
+      "/app/$(basename "$0")"
     exit
   fi
 }
