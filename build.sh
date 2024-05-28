@@ -47,7 +47,7 @@ _west_compile() {
   local artifacts_dir="/_firmware"
   local extra_cmake_args="-DSHIELD='${shield}'${zmk_load_arg}"
   local display_name="${shield} - ${board}"
-  local artifact_name="${shield}-${board}-zmk.$(date +%F_%H%M%S)"
+  local artifact_name="zmk.$(date +%F_%H%M%S).${board}-${shield}"
 
   mkdir -pv "${build_dir}" "${artifacts_dir}"
   west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" ${extra_cmake_args} ${cmake_args}
