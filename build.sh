@@ -52,8 +52,8 @@ _west_compile() {
   mkdir -pv "${build_dir}" "${artifacts_dir}"
   west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" ${extra_cmake_args} ${cmake_args}
 
-  cp "${build_dir}/zephyr/.config" "${artifacts_dir}/${artifact_name}.Kconfig"
-  cp "${build_dir}/zephyr/zephyr.dts" "${artifacts_dir}/${artifact_name}.zephyr.dts"
+  # cp "${build_dir}/zephyr/.config" "${artifacts_dir}/${artifact_name}.Kconfig"
+  # cp "${build_dir}/zephyr/zephyr.dts" "${artifacts_dir}/${artifact_name}.zephyr.dts"
   cp "${build_dir}/zephyr/zmk.uf2" "${artifacts_dir}/${artifact_name}.uf2"
 }
 
