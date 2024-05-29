@@ -22,10 +22,15 @@ _main() {
   cd "${base_dir}" || exit 1
 
   _west_prepare "${base_dir}" "${config_path}"
-  _west_compile "${base_dir}" "${config_path}" "${timestamp}" nice_nano_v2 kyria_rev3_left
-  _west_compile "${base_dir}" "${config_path}" "${timestamp}" nice_nano_v2 kyria_rev3_right
+
+  grep -v '^\s*#' "${project_dir}/build.yaml" |
+  awk -vRS='  - ' '/board:/ { print $2, $4 }' |
+  while read -r board shield ; do
+    _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
+  done
 
   echo
+  echo "_firmware/${timestamp}/"
   ls -lh "/_firmware/${timestamp}"
 }
 
