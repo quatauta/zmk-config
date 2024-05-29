@@ -20,7 +20,6 @@
 #include "mouse.dtsi"
 #include "extra_keys.h"
 
-#define XXX &none
 #define ___ &trans
 
 /* Global settings */
