@@ -37,4 +37,4 @@ Once I am happy with the keyboard, I will add a 3D printed low-profile case.
 
 To decide :-)
 
-Depending on the space available between the controllers and PCB, 301230 or 601230 lithium polimer batters.
+Depending on the space available between the controllers and PCB, 301230 or 601230 lithium polimer batteries.
