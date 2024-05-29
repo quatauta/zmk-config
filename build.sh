@@ -14,7 +14,8 @@ _main() {
   local timestamp="$(date +%F_%H%M%S)"
 
   if [ "${base_dir}" != "${project_dir}" ]; then
-    mkdir -p "${base_dir}/${config_path}"
+    rm -rf "${base_dir}/${config_path}"/*
+    mkdir -p "${base_dir}/${config_path}/"
     cp -R "${project_dir}/${config_path}"/* "${base_dir}/${config_path}/"
   fi
 
