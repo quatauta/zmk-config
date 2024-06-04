@@ -83,7 +83,7 @@ _start_container_runtime() {
 _exec_in_container() {
   if [[ ! -f /.dockerenv ]] ; then
     _start_container_runtime
-    exec docker run --rm -it \
+    exec docker run --rm -it --pull=always \
       -v .:/app:ro \
       -v ./_build:/_build \
       -v ./_firmware:/_firmware \
