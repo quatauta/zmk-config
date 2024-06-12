@@ -3,7 +3,7 @@
 set -eo pipefail
 
 _main() {
-  _exec_in_container
+  _exec_in_container "${@}"
 
   cd "$(dirname "$0")" || exit 1
 
@@ -24,10 +24,10 @@ _main() {
   _west_prepare "${base_dir}" "${config_path}"
 
   grep -v '^\s*#' "${project_dir}/build.yaml" |
-  awk -vRS='  - ' '/board:/ { print $2, $4 }' |
-  while read -r board shield ; do
-    _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
-  done
+    awk -vRS='  - ' '/board:/ { print $2, $4 }' |
+    while read -r board shield; do
+      _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
+    done
 
   echo
   echo "_firmware/${timestamp}/"
@@ -51,13 +51,11 @@ _west_compile() {
   local shield="$5"
 
   local build_dir="$(realpath "${base_dir}/../${board}-${shield}")"
-  local extra_cmake_args="-DSHIELD='${shield}'${zmk_load_arg}"
-  local display_name="${shield} - ${board}"
   local artifacts_dir="/_firmware/${timestamp}"
   local artifact_name="zmk.${timestamp}.${board}.${shield}"
 
   mkdir -pv "${build_dir}" "${artifacts_dir}"
-  west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" ${extra_cmake_args} ${cmake_args}
+  west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" -DSHIELD="${shield}" ${zmk_load_arg}
 
   # cp "${build_dir}/zephyr/.config" "${artifacts_dir}/${artifact_name}.Kconfig"
   # cp "${build_dir}/zephyr/zephyr.dts" "${artifacts_dir}/${artifact_name}.zephyr.dts"
@@ -65,30 +63,30 @@ _west_compile() {
 }
 
 _start_container_runtime() {
-  for RUNTIME in orbctl /Applications/{OrbStack,Docker}.app ; do
+  for RUNTIME in orbctl /Applications/{OrbStack,Docker}.app; do
     command -v "${RUNTIME}" && break
     [[ -d "${RUNTIME}" ]] && break
   done
 
   case "${RUNTIME}" in
-    *.app )
-      open -a "${RUNTIME}"
-      ;;
-    * )
-      "${RUNTIME}" start
-      ;;
+  *.app)
+    open -a "${RUNTIME}"
+    ;;
+  *)
+    "${RUNTIME}" start
+    ;;
   esac
 }
 
 _exec_in_container() {
-  if [[ ! -f /.dockerenv ]] ; then
+  if [[ ! -f /.dockerenv ]]; then
     _start_container_runtime
     exec docker run --rm -it --pull=always \
       -v .:/app:ro \
       -v ./_build:/_build \
       -v ./_firmware:/_firmware \
       zmkfirmware/zmk-build-arm:stable \
-      "/app/$(basename "$0")"
+      "/app/$(basename "$0")" "${@}"
     exit
   fi
 }
