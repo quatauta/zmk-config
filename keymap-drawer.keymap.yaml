@@ -1,6 +1,6 @@
 # parsed and tweaked from the default QMK keymap
 layout:
-  qmk_keyboard: splitkb/kyria/rev1
+  qmk_keyboard: splitkb/kyria/rev3
   qmk_layout: LAYOUT_split_3x6_5
 layers:
   QWERTY:

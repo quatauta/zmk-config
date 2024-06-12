@@ -16,7 +16,20 @@ _main() {
   if [[ $# -gt 0 ]]; then
     "${HOME}/.local/bin/keymap" "${@}" # -c keymap-drawer.config.yaml draw keymap-drawer.keymap.yaml
   else
-    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw -o /root/keymap.svg keymap-drawer.keymap.yaml
+    (
+      awk -vFS='[ "]+' '/#include "zmk-helpers/ { print $2 }' config/kyria_rev3.keymap |
+      xargs -I HELPER cat _build/zmk-config/zmk-helpers/include/HELPER
+      cat config/mouse.dtsi
+      cat config/kyria_rev3.keymap
+    ) > /root/keymap
+    "${HOME}/.local/bin/keymap" parse -b keymap-drawer.keymap.yaml -c 12 -z /root/keymap -o /root/keymap.yaml
+    (
+      echo "layout:"
+      echo "  qmk_keyboard: splitkb/kyria/rev3"
+      echo "  qmk_layout: LAYOUT_split_3x6_5"
+      cat /root/keymap.yaml
+    ) > /root/keymap2.yaml
+    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw -o /root/keymap.svg /root/keymap2.yaml
   fi
 }
 
