@@ -18,11 +18,12 @@ _main() {
   else
     (
       awk -vFS='[ "]+' '/#include "zmk-helpers/ { print $2 }' config/kyria_rev3.keymap |
-      xargs -I HELPER cat _build/zmk-config/zmk-helpers/include/HELPER
+      xargs -rt -I HELPER cat _build/zmk-config/zmk-helpers/include/HELPER
       cat config/mouse.dtsi
       cat config/kyria_rev3.keymap
+      cat config/combos.dtsi
     ) > /root/keymap
-    "${HOME}/.local/bin/keymap" parse -b keymap-drawer.keymap.yaml -c 12 -z /root/keymap -o /root/keymap.yaml
+    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml parse -b keymap-drawer.keymap.yaml -c 12 -z /root/keymap -o /root/keymap.yaml
     (
       echo "layout:"
       echo "  qmk_keyboard: splitkb/kyria/rev3"

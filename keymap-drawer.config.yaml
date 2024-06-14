@@ -1,23 +1,23 @@
 draw_config:
-  key_w: 60.0
-  key_h: 56.0
+  key_w: 80.0
+  key_h: 72.0
   split_gap: 30.0
-  combo_w: 28.0
-  combo_h: 26.0
+  combo_w: 38.0
+  combo_h: 20.0
   key_rx: 6.0
   key_ry: 6.0
   dark_mode: auto
   n_columns: 1
   separate_combo_diagrams: false
   combo_diagrams_scale: 2
-  inner_pad_w: 2.0
-  inner_pad_h: 2.0
+  inner_pad_w: 6.0
+  inner_pad_h: 6.0
   outer_pad_w: 30.0
   outer_pad_h: 56.0
-  line_spacing: 1.2
+  line_spacing: 1.1
   arc_radius: 6.0
   append_colon_to_layer_header: true
-  small_pad: 2.0
+  small_pad: 10.0
   legend_rel_x: 0.0
   legend_rel_y: 0.0
   draw_key_sides: false
@@ -47,16 +47,16 @@ parse_config:
     type: trans
   mark_alternate_layer_activators: false
   modifier_fn_map:
-    left_ctrl: Ctl
-    right_ctrl: Ctl
-    left_shift: Sft
-    right_shift: Sft
-    left_alt: Alt
-    right_alt: AGr
-    left_gui: Gui
-    right_gui: Gui
-    keycode_combiner: '{mods}+ {key}'
-    mod_combiner: '{mod_1}+{mod_2}'
+    left_ctrl: '^'
+    right_ctrl: '^'
+    left_shift: '⇑'
+    right_shift: '⇑'
+    left_alt: '⌥'
+    right_alt: '⌥'
+    left_gui: '⌘'
+    right_gui: '⌘'
+    keycode_combiner: '{mods}{key}'
+    mod_combiner: '{mod_1}{mod_2}'
     special_combinations:
       left_ctrl+left_alt+left_gui+left_shift: Hyper
       left_ctrl+left_alt+left_shift: Meh
@@ -195,4 +195,34 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-  zmk_combos: {}
+    TAB: 'Tab'
+    LSHFT: '$$phosphor:regular/arrow-fat-up$$'
+    RSHFT: '$$phosphor:regular/arrow-fat-up$$'
+    LGUI: '$$phosphor:regular/command$$'
+    RGUI: '$$phosphor:regular/command$$'
+    LALT: '$$phosphor:regular/option$$'
+    RALT: '$$phosphor:regular/option$$'
+    LCTRL: '$$phosphor:regular/control$$'
+    RCTRL: '$$phosphor:regular/control$$'
+    RET: '$$phosphor:regular/arrow-elbow-down-left$$'
+    RETURN: '$$phosphor:regular/arrow-elbow-down-left$$'
+    ESC: 'Esc'
+    SPACE: '␣'
+    UP: '$$phosphor:regular/arrow-up$$'
+    DOWN: '$$phosphor:regular/arrow-down$$'
+    LEFT: '$$phosphor:regular/arrow-left$$'
+    RIGHT: '$$phosphor:regular/arrow-right$$'
+    PG_UP: '$$phosphor:regular/arrow-line-up$$'
+    PG_DN: '$$phosphor:regular/arrow-line-down$$'
+    HOME: 'Home'
+    END: 'End'
+    BSPC: 'Bspc' # '$$phosphor:regular/backspace$$'
+    DEL: 'Del'
+    INS: 'Ins'
+    BT_SEL: '$$phosphor:regular/bluetooth$$'
+    BT_CLR: '$$phosphor:regular/bluetooth-x$$'
+  zmk_combos:
+    combo_grk: {"align": "top", "offset": 0.7}
+    combo_cpgrk: {"align": "top", "offset": 0.1}
+    combo_cut: {"align": "bottom", "offset": -0.1}
+    combo_mouse: {"align": "top", "offset": 0.3}
