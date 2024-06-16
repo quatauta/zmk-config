@@ -17,7 +17,7 @@ draw_config:
   line_spacing: 1.1
   arc_radius: 6.0
   append_colon_to_layer_header: true
-  small_pad: 1.0
+  small_pad: 2.0
   legend_rel_x: 0.0
   legend_rel_y: 0.0
   draw_key_sides: false
@@ -28,7 +28,8 @@ draw_config:
     rel_h: 12
     rx: 4
     ry: 4
-  svg_extra_style: ''
+  svg_extra_style: |
+    rect.combo, rect.combo-separate { fill: #ccddff50; }
   footer_text: Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>
   shrink_wide_legends: 7
   glyph_tap_size: 14
@@ -43,7 +44,7 @@ parse_config:
   toggle_label: toggle
   tap_toggle_label: tap-toggle
   trans_legend:
-    t: ▽
+    t: ' ' # ▽
     type: trans
   mark_alternate_layer_activators: false
   modifier_fn_map:
@@ -208,6 +209,7 @@ parse_config:
     RETURN: '$$phosphor:regular/arrow-elbow-down-left$$'
     ESC: 'Esc'
     SPACE: '␣'
+    dot_spc: '.␣'
     UP: '$$phosphor:regular/arrow-up$$'
     DOWN: '$$phosphor:regular/arrow-down$$'
     LEFT: '$$phosphor:regular/arrow-left$$'
@@ -216,11 +218,94 @@ parse_config:
     PG_DN: '$$phosphor:regular/arrow-line-down$$'
     HOME: 'Home'
     END: 'End'
-    BSPC: 'Bspc' # '$$phosphor:regular/backspace$$'
+    BSPC: 'Bspc'
     DEL: 'Del'
     INS: 'Ins'
+    K_CANCEL: '$$phosphor:regular/prohibit$$'
     BT_SEL: '$$phosphor:regular/bluetooth$$'
     BT_CLR: '$$phosphor:regular/bluetooth-x$$'
+    OUT_TOG: '$$phosphor:regular/usb$$'
+    swapper: '$$phosphor:regular/swap$$'
+    sys_reset: '$$phosphor:regular/device-rotate$$'
+    bootloader: '$$phosphor:regular/binary$$'
+    smart_mouse: '$$phosphor:regular/mouse$$'
+    LCLK: '$$phosphor:regular/mouse-left-click$$'
+    RCLK: '$$phosphor:regular/mouse-right-click$$'
+    MCLK: '$$phosphor:regular/mouse-middle-click$$'
+    MB4: '$$phosphor:regular/rewind-circle$$'
+    MB5: '$$phosphor:regular/fast-forward-circle$$'
+    MOVE_LEFT: '$$phosphor:regular/arrow-fat-lines-left$$'
+    MOVE_RIGHT: '$$phosphor:regular/arrow-fat-lines-right$$'
+    MOVE_UP: '$$phosphor:regular/arrow-fat-lines-up$$'
+    MOVE_DOWN: '$$phosphor:regular/arrow-fat-lines-down$$'
+    SCRL_LEFT: '$$phosphor:regular/arrow-circle-left$$'
+    SCRL_RIGHT: '$$phosphor:regular/arrow-circle-right$$'
+    SCRL_UP: '$$phosphor:regular/arrow-circle-up$$'
+    SCRL_DOWN: '$$phosphor:regular/arrow-circle-down$$'
+    C_VOL_UP: '$$phosphor:regular/speaker-high$$'
+    C_VOL_DN: '$$phosphor:regular/speaker-low$$'
+    C_MUTE: '$$phosphor:regular/speaker-slash$$'
+    C_PP: '$$phosphor:regular/play-pause$$'
+    C_NEXT: '$$phosphor:regular/fast-forward$$'
+    C_PREV: '$$phosphor:regular/rewind$$'
+    el_alpha_lower: 'α'
+    el_alpha_upper: 'Α'
+    el_beta_lower: 'β'
+    el_beta_upper: 'Β'
+    el_chi_lower: 'χ'
+    el_chi_upper: 'Χ'
+    el_delta_lower: 'δ'
+    el_delta_upper: 'Δ'
+    el_epsilon_lower: 'ε'
+    el_epsilon_upper: 'Ε'
+    el_eta_lower: 'η'
+    el_eta_upper: 'Η'
+    el_final_sigma_lower: 'ς'
+    el_final_sigma_upper: 'Σ'
+    el_gamma_lower: 'γ'
+    el_gamma_upper: 'Γ'
+    el_iota_lower: 'ι'
+    el_iota_upper: 'Ι'
+    el_kappa_lower: 'κ'
+    el_kappa_upper: 'Κ'
+    el_lambda_lower: 'λ'
+    el_lambda_upper: 'Λ'
+    el_mu_lower: 'μ'
+    el_mu_upper: 'Μ'
+    el_nu_lower: 'ν'
+    el_nu_upper: 'Ν'
+    el_omega_lower: 'ω'
+    el_omega_upper: 'Ω'
+    el_omikron_lower: 'ο'
+    el_omikron_upper: 'Ο'
+    el_phi_lower: 'φ'
+    el_phi_upper: 'Φ'
+    el_pi_lower: 'π'
+    el_pi_upper: 'Π'
+    el_psi_lower: 'ψ'
+    el_psi_upper: 'Ψ'
+    el_rho_lower: 'ρ'
+    el_rho_upper: 'Ρ'
+    el_sigma_lower: 'σ'
+    el_sigma_upper: 'Σ'
+    el_tau_lower: 'τ'
+    el_tau_upper: 'Τ'
+    el_theta_lower: 'θ'
+    el_theta_upper: 'Θ'
+    el_upsilon_lower: 'υ'
+    el_upsilon_upper: 'Υ'
+    el_xi_lower: 'ξ'
+    el_xi_upper: 'Ξ'
+    el_zeta_lower: 'ζ'
+    el_zeta_upper: 'Ζ'
+    de_ae_lower: 'ä'
+    de_ae_upper: 'Ä'
+    de_eszett_lower: 'ß'
+    de_eszett_upper: 'ẞ'
+    de_oe_lower: 'ö'
+    de_oe_upper: 'Ö'
+    de_ue_lower: 'ü'
+    de_ue_upper: 'Ü'
   zmk_combos:
     combo_grk: {"align": "top", "offset": 0.9}
     combo_cpgrk: {"align": "top", "offset": 0.1}
