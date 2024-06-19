@@ -43,7 +43,6 @@ draw_config:
 parse_config:
   preprocess: true
   skip_binding_parsing: false
-  raw_binding_map: {}
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -221,41 +220,47 @@ parse_config:
     PG_DN: '$$phosphor:regular/arrow-line-down$$'
     HOME: 'Home'
     END: 'End'
-    BSPC: 'Bspc'
-    DEL: 'Del'
+    BSPC: '⌦' # 'Bspc'
+    DEL: '⌫' # 'Del'
     INS: 'Ins'
-    K_CANCEL: '$$phosphor:regular/prohibit$$'
-    BT_SEL: '$$phosphor:regular/bluetooth$$'
     BT_CLR: '$$phosphor:regular/bluetooth-x$$'
-    OUT_TOG: '$$phosphor:regular/usb$$'
-    LCLK: '$$phosphor:regular/mouse-left-click$$'
-    RCLK: '$$phosphor:regular/mouse-right-click$$'
-    MCLK: '$$phosphor:regular/mouse-middle-click$$'
-    MB4: '$$phosphor:regular/rewind-circle$$'
-    MB5: '$$phosphor:regular/fast-forward-circle$$'
-    MOVE_UP: '$$phosphor:regular/arrow-fat-lines-up$$'
-    MOVE_DOWN: '$$phosphor:regular/arrow-fat-lines-down$$'
-    MOVE_LEFT: '$$phosphor:regular/arrow-fat-lines-left$$'
-    MOVE_RIGHT: '$$phosphor:regular/arrow-fat-lines-right$$'
-    SCRL_UP: '$$phosphor-mouse-scroll-up$$'
-    SCRL_DOWN: '$$phosphor-mouse-scroll-down$$'
-    SCRL_LEFT: '$$phosphor-mouse-scroll-left$$'
-    SCRL_RIGHT: '$$phosphor-mouse-scroll-right$$'
-    C_VOL_UP: '$$phosphor:regular/speaker-high$$'
-    C_VOL_DN: '$$phosphor:regular/speaker-low$$'
+    BT_SEL: '$$phosphor:regular/bluetooth$$'
     C_MUTE: '$$phosphor:regular/speaker-slash$$'
-    C_PP: '$$phosphor:regular/play-pause$$'
     C_NEXT: '$$phosphor:regular/fast-forward$$'
+    C_PP: '$$phosphor:regular/play-pause$$'
     C_PREV: '$$phosphor:regular/rewind$$'
+    C_VOL_DN: '$$phosphor:regular/speaker-low$$'
+    C_VOL_UP: '$$phosphor:regular/speaker-high$$'
+    K_CANCEL: '$$phosphor:regular/prohibit$$'
+  zmk_combos:
+    combo_cpgrk: {"align": "top", "offset": 0.1}
+    combo_cut: {"align": "bottom", "offset": -0.2}
+    combo_grk: {"align": "top", "offset": 0.9}
+    combo_mouse: {"align": "top", "offset": 0.3}
+  raw_binding_map:
     "&bootloader": '$$phosphor:regular/binary$$'
     "&caps_word": 'caps word'
     "&dot_spc": '.␣'
-    "&key_repeat": '$$phosphor:regular/repeat-once$$'
+    "&key_repeat 0": '$$phosphor:regular/repeat-once$$'
+    "&mkp LCLK": '$$phosphor:regular/mouse-left-click$$'
+    "&mkp MB4": '$$phosphor:regular/rewind-circle$$'
+    "&mkp MB5": '$$phosphor:regular/fast-forward-circle$$'
+    "&mkp MCLK": '$$phosphor:regular/mouse-middle-click$$'
+    "&mkp RCLK": '$$phosphor:regular/mouse-right-click$$'
+    "&mmv MOVE_DOWN": '$$phosphor:regular/arrow-fat-lines-down$$'
+    "&mmv MOVE_LEFT": '$$phosphor:regular/arrow-fat-lines-left$$'
+    "&mmv MOVE_RIGHT": '$$phosphor:regular/arrow-fat-lines-right$$'
+    "&mmv MOVE_UP": '$$phosphor:regular/arrow-fat-lines-up$$'
+    "&msc SCRL_DOWN": '$$phosphor-mouse-scroll-down$$'
+    "&msc SCRL_LEFT": '$$phosphor-mouse-scroll-left$$'
+    "&msc SCRL_RIGHT": '$$phosphor-mouse-scroll-right$$'
+    "&msc SCRL_UP": '$$phosphor-mouse-scroll-up$$'
     "&num_dance": 'num dance'
+    "&out OUT_TOG": '$$phosphor:regular/usb$$'
     "&smart_mouse": '$$phosphor:regular/mouse$$'
     "&swapper": '$$phosphor:regular/swap$$'
     "&sys_reset": '$$phosphor:regular/device-rotate$$'
-    "&uc_shift": 'uc shift'
+    "&uc_shift 0": '⇑uc'
     "&win_sleep": '$$phosphor:regular/bed$$'
     "&de_ae_lower": 'ä'
     "&de_ae_upper": 'Ä'
@@ -315,8 +320,3 @@ parse_config:
     "&el_xi_upper": 'Ξ'
     "&el_zeta_lower": 'ζ'
     "&el_zeta_upper": 'Ζ'
-  zmk_combos:
-    combo_grk: {"align": "top", "offset": 0.9}
-    combo_cpgrk: {"align": "top", "offset": 0.1}
-    combo_cut: {"align": "bottom", "offset": -0.2}
-    combo_mouse: {"align": "top", "offset": 0.3}
