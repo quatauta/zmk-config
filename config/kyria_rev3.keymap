@@ -1,3 +1,6 @@
+/* For Unicode input in zmk-helpers/helper.h: 0=Windows, 1=Linux, 2=MacOS */
+#define HOST_OS 2
+
 /* source key position labels */
 #include "zmk-helpers/key-labels/kyria.h"
 
@@ -6,7 +9,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include "zmk-helpers/helper.h"
-#include "zmk-helpers/unicode-chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/currency.dtsi"
 #include "zmk-helpers/unicode-chars/german.dtsi"
 
 #define DEF 0
@@ -214,6 +217,9 @@ ZMK_MACRO(win_sleep,
 #define DSK_MGR     &kp LA(GRAVE)            // desktop manager
 #define VOL_DOWN    &hmr RSHFT C_VOL_DN
 
+ZMK_UNICODE_SINGLE(sym_le, N2, N2, N6, N4) // ≤ (less-than or equal to)
+ZMK_UNICODE_SINGLE(sym_ge, N2, N2, N6, N5) // ≥ (greater-than or equal to)
+
 /* Keymap */
 
 ZMK_CONDITIONAL_LAYER(FN NUM, SYS)  // FN + NUM --> SYS
@@ -279,18 +285,12 @@ ZMK_LAYER(sys,
 )
 
 ZMK_LAYER(uc,
-// Q W E R T   Z U I O P
-// A S D F G   H J K L
-// Y X C V B   N M
-//           &el_omega &el_phi   &el_pi    &el_beta              &el_lambda &el_upsilon &el_psi  &de_eszett
-// &el_alpha &el_rho   &el_sigma &el_tau   &el_gamma   &el_mu    &el_nu     &el_epsilon &el_iota &el_omikron
-// &el_zeta  &el_xi    &el_chi   &el_delta &el_theta   &el_kappa &el_eta    &de_ae      &de_oe   &de_ue
 //╭──────────────┬──────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                         ╭─────────────┬─────────────┬─────────────┬─────────────┬──────────────┬──────────────╮
-    ___            ___            &el_omega     &el_phi       &el_pi        &el_beta                                                                ___           &el_lambda    &el_upsilon   &el_psi       &de_eszett     ___
+    ___            ___            &curr_euro    ___           ___           ___                                                                     ___           &de_ue        ___           &de_oe        ___            ___
 //├──────────────┼──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                                                         ├─────────────┼─────────────┼─────────────┼─────────────┼──────────────┼──────────────┤
-    ___            &el_alpha      &el_rho       &el_sigma     &el_tau       &el_gamma                                                               &el_mu        &el_nu        &el_epsilon   &el_iota      &el_omikron    ___
+    ___            &de_ae         &de_eszett    ___           ___           ___                                                                     ___           ___           ___           &curr_pound   ___            ___
 //├──────────────┼──────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┬─────────────╮ ╭─────────────┬─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼──────────────┼──────────────┤
-    ___            &el_zeta       &el_xi        &el_chi       &el_delta     &el_theta     ___           ___             ___           ___           &el_kappa     &el_eta       &de_ae        &de_oe        &de_ue         ___
+    ___            ___            ___           ___           ___           ___           ___           ___             ___           ___           ___           ___           &sym_le       &sym_ge       ___            ___
 //╰──────────────┴──────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴──────────────┴──────────────╯
                                                 ___           ___           ___           ___           ___             ___           ___           ___           ___           ___
 //                                            ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
