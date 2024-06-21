@@ -34,7 +34,7 @@ draw_config:
     text { font-size: 1.2rem; }
     text.combo { font-size: 0.9rem; }
   footer_text: Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>
-  shrink_wide_legends: 7
+  shrink_wide_legends: 10
   glyph_tap_size: 20
   glyph_hold_size: 12
   glyph_shifted_size: 12
@@ -202,7 +202,7 @@ parse_config:
     NON_US_HASH: '#'
     NUHS: '#'
     TILDE2: '~'
-    TAB: '↹'
+    TAB: '⇥'
     LSHFT: '$$phosphor:regular/arrow-fat-up$$'
     RSHFT: '$$phosphor:regular/arrow-fat-up$$'
     LGUI: '$$phosphor:regular/command$$'
@@ -221,8 +221,8 @@ parse_config:
     RIGHT: '$$phosphor:regular/arrow-right$$'
     PG_UP: '$$phosphor:regular/arrow-line-up$$'
     PG_DN: '$$phosphor:regular/arrow-line-down$$'
-    HOME: 'Home'
-    END: 'End'
+    HOME: '↖'
+    END: '↘'
     BSPC: '⌦' # 'Bspc'
     DEL: '⌫' # 'Del'
     INS: 'Ins'
@@ -268,6 +268,10 @@ parse_config:
     "&sys_reset": '$$phosphor:regular/device-rotate$$'
     "&uc_shift 0": 'uc⇑'
     "&win_sleep": '$$phosphor:regular/bed$$'
+    "&curr_euro": "€"
+    "&curr_pound": "£"
+    "&sym_le": '≤'
+    "&sym_ge": '≥'
     "&de_ae_lower": 'ä'
     "&de_ae_upper": 'Ä'
     "&de_eszett_lower": 'ß'
