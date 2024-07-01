@@ -4,8 +4,12 @@ Documentation and software/firmware for my wireless split keyboard:
 [SplitKB Kyria revision 3](https://splitkb.com/products/kyria-rev3).
 
 I am using [ZMK Firmware](https://zmk.dev/). The keyboard layout is based on
-https://github.com/urob/zmk-config, but with a boring QWERTY keymap for easy
-transitions to traditional (laptop) keyboards.
+https://github.com/urob/zmk-config, with a boring QWERTY keymap for easy
+transitions to traditional keyboards.
+
+## Keymap
+
+![Kyria split keyboard keymap](keymap.svg)
 
 ## Selection criteria for my keyboard
 

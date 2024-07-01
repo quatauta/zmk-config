@@ -30,7 +30,7 @@ _main() {
       echo "  qmk_layout: LAYOUT_split_3x6_5"
       cat /root/keymap.yaml
     ) > /root/keymap2.yaml
-    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw -o /root/keymap.svg /root/keymap2.yaml
+    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw -o /app/keymap.svg /root/keymap2.yaml
   fi
 }
 
@@ -54,7 +54,7 @@ _exec_in_container() {
   if [[ ! -f /.dockerenv ]]; then
     _start_container_runtime
     exec docker run --rm -it --pull=always \
-      -v .:/app:ro \
+      -v .:/app \
       -v ./_keymap-drawer:/root \
       -v ./_keymap-drawer-apk-cache:/etc/apk/cache \
       alpine:latest \
