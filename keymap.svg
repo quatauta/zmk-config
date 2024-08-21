@@ -288,7 +288,7 @@ text.combo { font-size: 0.9rem; }
 </g>
 <g transform="translate(782, 60)" class="key keypos-6">
 <rect rx="6" ry="6" x="-30" y="-20" width="60" height="40" class="key"/>
-<text x="0" y="0" class="key tap">Z</text>
+<text x="0" y="0" class="key tap">Y</text>
 </g>
 <g transform="translate(850, 51)" class="key keypos-7">
 <rect rx="6" ry="6" x="-30" y="-20" width="60" height="40" class="key"/>
@@ -372,7 +372,7 @@ text.combo { font-size: 0.9rem; }
 </g>
 <g transform="translate(102, 221)" class="key keypos-25">
 <rect rx="6" ry="6" x="-30" y="-20" width="60" height="40" class="key"/>
-<text x="0" y="0" class="key tap">Y</text>
+<text x="0" y="0" class="key tap">Z</text>
 </g>
 <g transform="translate(170, 187)" class="key keypos-26">
 <rect rx="6" ry="6" x="-30" y="-20" width="60" height="40" class="key"/>
