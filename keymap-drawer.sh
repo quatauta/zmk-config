@@ -18,7 +18,7 @@ _main() {
   else
     (
       awk -vFS='[ "]+' '/#include "zmk-helpers/ { print $2 }' config/kyria_rev3.keymap |
-      xargs -rt -I HELPER cat _build/zmk-config/zmk-helpers/include/HELPER
+      xargs -rt -I HELPER cat _build/zmk-config/modules/helpers/include/HELPER
       cat config/mouse.dtsi
       cat config/kyria_rev3.keymap
       cat config/combos.dtsi
