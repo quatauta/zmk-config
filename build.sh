@@ -24,10 +24,10 @@ _main() {
   _west_prepare "${base_dir}" "${config_path}"
 
   grep -v '^\s*#' "${project_dir}/build.yaml" |
-    awk -vRS='  - ' '/board:/ { print $2, $4 }' |
-    while read -r board shield; do
-      _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
-    done
+  awk -vRS='  - ' '/board:/ { print $2, $4 }' |
+  while read -r board shield; do
+    _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
+  done
 
   echo
   echo "_firmware/${timestamp}/"
@@ -85,7 +85,7 @@ _exec_in_container() {
       -v .:/app:ro \
       -v ./_build:/_build \
       -v ./_firmware:/_firmware \
-      zmkfirmware/zmk-build-arm:stable \
+      zmkfirmware/zmk-build-arm:3.5-branch \
       "/app/$(basename "$0")" "${@}"
     exit
   fi

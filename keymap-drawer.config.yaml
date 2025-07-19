@@ -1,332 +1,235 @@
-draw_config:
-  key_w: 68.0
-  key_h: 68.0
-  split_gap: 0.0
-  combo_w: 32.0
-  combo_h: 32.0
-  key_rx: 6.0
-  key_ry: 6.0
-  dark_mode: auto
-  n_columns: 1
-  separate_combo_diagrams: false
-  combo_diagrams_scale: 2
-  inner_pad_w: 4.0
-  inner_pad_h: 14.0
-  outer_pad_w: 10.0
-  outer_pad_h: 20.0
-  line_spacing: 1.1
-  arc_radius: 6.0
-  append_colon_to_layer_header: true
-  small_pad: 2.0
-  legend_rel_x: 0.0
-  legend_rel_y: 0.0
-  draw_key_sides: false
-  key_side_pars:
-    rel_x: 0
-    rel_y: 4
-    rel_w: 12
-    rel_h: 12
-    rx: 4
-    ry: 4
-  svg_extra_style: |
-    rect.combo, rect.combo-separate { fill: #ccddff50; }
-    svg.keymap { font-family: "Fira Code", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; }
-    text { font-size: 1.2rem; }
-    text.combo { font-size: 0.9rem; }
-  footer_text: Created with <a href="https://github.com/caksoylar/keymap-drawer">keymap-drawer</a>
-  shrink_wide_legends: 10
-  glyph_tap_size: 20
-  glyph_hold_size: 12
-  glyph_shifted_size: 12
-  glyphs:
-    phosphor-mouse-scroll-up: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg" ><path d="M 144,16 H 112 C 76.669768,16.038579 48.038579,44.669768 48,80 v 96 c 0.03858,35.33023 28.669768,63.96142 64,64 h 32 c 35.33023,-0.0386 63.96142,-28.66977 64,-64 V 80 C 207.96142,44.669768 179.33023,16.038579 144,16 Z m 48,160 c -0.0276,26.49824 -21.50176,47.97244 -48,48 H 112 C 85.501756,223.97244 64.027559,202.49824 64,176 V 80 C 64.02756,53.501756 85.501756,32.027559 112,32 h 32 c 26.49824,0.02756 47.97244,21.501756 48,48 z M 128,55.994141 c -2.04877,0 -4.0977,0.781509 -5.66016,2.345703 l -23.999996,24 c -3.125931,3.125931 -3.125928,8.194383 0,11.320312 3.125926,3.125928 8.194386,3.125931 11.320316,0 L 120,83.310547 h 0.002 V 192.00586 c 0,4.41827 3.58173,8 8,8 4.41828,0 8,-3.58173 8,-8 V 83.3125 l 10.33789,10.347656 c 3.12593,3.125931 8.19439,3.125928 11.32032,0 3.12592,-3.125929 3.12592,-8.194381 0,-11.320312 l -24,-24 C 132.0977,56.77565 130.04877,55.994141 128,55.994141 Z" /></svg>
-    phosphor-mouse-scroll-down: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M 144,240 H 112 C 76.669768,239.96142 48.038579,211.33023 48,176 V 80 C 48.03858,44.66977 76.669768,16.03858 112,16 h 32 c 35.33023,0.0386 63.96142,28.66977 64,64 v 96 c -0.0386,35.33023 -28.66977,63.96142 -64,64 z M 192,80 C 191.9724,53.50176 170.49824,32.02756 144,32 H 112 C 85.501756,32.02756 64.027559,53.50176 64,80 v 96 c 0.02756,26.49824 21.501756,47.97244 48,48 h 32 c 26.49824,-0.0276 47.97244,-21.50176 48,-48 z m -64,120.00586 c -2.04877,0 -4.0977,-0.78151 -5.66016,-2.3457 l -23.999996,-24 c -3.125931,-3.12594 -3.125928,-8.19439 0,-11.32032 3.125926,-3.12592 8.194386,-3.12593 11.320316,0 L 120,172.68945 h 0.002 V 63.99414 c 0,-4.41827 3.58173,-8 8,-8 4.41828,0 8,3.58173 8,8 V 172.6875 l 10.33789,-10.34766 c 3.12593,-3.12593 8.19439,-3.12592 11.32032,0 3.12592,3.12593 3.12592,8.19438 0,11.32032 l -24,24 c -1.56251,1.56419 -3.61144,2.3457 -5.66021,2.3457 z" /></svg>
-    phosphor-mouse-scroll-left: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M 112 16 C 76.669803 16.03858 48.03858 44.669805 48 80 L 48 176 C 48.038579 211.33019 76.669803 239.96142 112 240 L 144 240 C 179.33019 239.96142 207.9614 211.33019 208 176 L 208 80 C 207.96142 44.669805 179.33019 16.0386 144 16 L 112 16 z M 112 32 L 144 32 C 170.49821 32.02756 191.9724 53.501786 192 80 L 192 176 C 191.97244 202.49821 170.49821 223.9724 144 224 L 112 224 C 85.501782 223.97244 64.02756 202.49821 64 176 L 64 80 C 64.027559 53.501786 85.501782 32.02756 112 32 z M 120 95.996094 C 117.95141 95.996093 115.90281 96.776881 114.33984 98.339844 L 90.339844 122.33984 C 88.775656 123.9023 87.994141 125.95123 87.994141 128 C 87.994141 130.04877 88.775606 132.09765 90.339844 133.66016 L 114.33984 157.66016 C 117.46578 160.78606 122.53423 160.78606 125.66016 157.66016 C 128.78606 154.53423 128.78607 149.46577 125.66016 146.33984 L 115.3125 136.00195 L 160.00586 136.00195 C 164.42411 136.00195 168.00586 132.42023 168.00586 128.00195 C 168.00586 123.5837 164.42411 120.00195 160.00586 120.00195 L 115.31055 120.00195 L 115.31055 120 L 125.66016 109.66016 C 128.78607 106.53423 128.78606 101.46577 125.66016 98.339844 C 124.09719 96.776886 122.04859 95.996095 120 95.996094 z " /></svg>
-    phosphor-mouse-scroll-right: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg" ><path d="m 144,16 c 35.3302,0.03858 63.96142,28.669805 64,64 v 96 c -0.0386,35.33019 -28.6698,63.96142 -64,64 H 112 C 76.66981,239.96142 48.0386,211.33019 48,176 V 80 C 48.03858,44.669805 76.66981,16.0386 112,16 Z m 0,16 H 112 C 85.50179,32.02756 64.0276,53.501786 64,80 v 96 c 0.02756,26.49821 21.50179,47.9724 48,48 h 32 c 26.49822,-0.0276 47.97244,-21.50179 48,-48 V 80 C 191.97244,53.501786 170.49822,32.02756 144,32 Z m -8,63.996094 c 2.04859,-10e-7 4.09719,0.780787 5.66016,2.34375 l 24,23.999996 c 1.56418,1.56246 2.3457,3.61139 2.3457,5.66016 0,2.04877 -0.78147,4.09765 -2.3457,5.66016 l -24,24 c -3.12594,3.1259 -8.19439,3.1259 -11.32032,0 -3.1259,-3.12593 -3.12591,-8.19439 0,-11.32032 L 140.6875,136.00195 H 95.99414 c -4.41825,0 -8,-3.58172 -8,-8 0,-4.41825 3.58175,-8 8,-8 h 44.69531 V 120 l -10.34961,-10.33984 c -3.12591,-3.12593 -3.1259,-8.19439 0,-11.320316 1.56297,-1.562958 3.61157,-2.343749 5.66016,-2.34375 z" /></svg>
 parse_config:
-  preprocess: true
-  skip_binding_parsing: false
-  sticky_label: sticky
-  toggle_label: toggle
-  tap_toggle_label: tap-toggle
-  trans_legend:
-    t: ' ' # ▽
-    type: trans
-  mark_alternate_layer_activators: true
-  modifier_fn_map:
-    left_ctrl: '^'
-    right_ctrl: '^'
-    left_shift: '⇑'
-    right_shift: '⇑'
-    left_alt: '⌥'
-    right_alt: '⌥'
-    left_gui: '⌘'
-    right_gui: '⌘'
-    keycode_combiner: '{mods}{key}'
-    mod_combiner: '{mod_1}{mod_2}'
-    special_combinations:
-      left_ctrl+left_alt+left_gui+left_shift: Hyper
-      left_ctrl+left_alt+left_shift: Meh
-  qmk_remove_keycode_prefix:
-  - KC_
-  qmk_keycode_map:
-    XXXXXXX: ''
-    'NO': ''
-    MINUS: '-'
-    MINS: '-'
-    EQUAL: '='
-    EQL: '='
-    LEFT_BRACKET: '['
-    LBRC: '['
-    RIGHT_BRACKET: ']'
-    RBRC: ']'
-    BACKSLASH: \
-    BSLS: \
-    NONUS_HASH: '#'
-    NUHS: '#'
-    SEMICOLON: ;
-    SCLN: ;
-    QUOTE: ''''
-    QUOT: ''''
-    GRAVE: '`'
-    GRV: '`'
-    COMMA: ','
-    COMM: ','
-    DOT: .
-    SLASH: /
-    SLSH: /
-    TILDE: '~'
-    TILD: '~'
-    EXCLAIM: '!'
-    EXLM: '!'
-    AT: '@'
-    HASH: '#'
-    DOLLAR: $
-    DLR: $
-    PERCENT: '%'
-    PERC: '%'
-    CIRCUMFLEX: ^
-    CIRC: ^
-    AMPERSAND: '&'
-    AMPR: '&'
-    ASTERISK: '*'
-    ASTR: '*'
-    LEFT_PAREN: (
-    LPRN: (
-    RIGHT_PAREN: )
-    RPRN: )
-    UNDERSCORE: _
-    UNDS: _
-    PLUS: +
-    LEFT_CURLY_BRACE: '{'
-    LCBR: '{'
-    RIGHT_CURLY_BRACE: '}'
-    RCBR: '}'
-    PIPE: '|'
-    COLON: ':'
-    COLN: ':'
-    DOUBLE_QUOTE: '"'
-    DQUO: '"'
-    DQT: '"'
-    LEFT_ANGLE_BRACKET: <
-    LABK: <
-    LT: <
-    RIGHT_ANGLE_BRACKET: '>'
-    RABK: '>'
-    GT: '>'
-    QUESTION: '?'
-    QUES: '?'
-  zmk_remove_keycode_prefix: []
-  zmk_keycode_map:
-    EXCLAMATION: '!'
-    EXCL: '!'
-    AT_SIGN: '@'
-    AT: '@'
-    HASH: '#'
-    POUND: '#'
-    DOLLAR: $
-    DLLR: $
-    PERCENT: '%'
-    PRCNT: '%'
-    CARET: ^
-    AMPERSAND: '&'
-    AMPS: '&'
-    ASTERISK: '*'
-    ASTRK: '*'
-    STAR: '*'
-    LEFT_PARENTHESIS: (
-    LPAR: (
-    RIGHT_PARENTHESIS: )
-    RPAR: )
-    EQUAL: '='
-    PLUS: +
-    MINUS: '-'
-    UNDERSCORE: _
-    UNDER: _
-    SLASH: /
-    FSLH: /
-    QUESTION: '?'
-    QMARK: '?'
-    BACKSLASH: \
-    BSLH: \
-    PIPE: '|'
-    NON_US_BACKSLASH: \
-    PIPE2: '|'
-    NON_US_BSLH: '|'
-    SEMICOLON: ;
-    SEMI: ;
-    COLON: ':'
-    SINGLE_QUOTE: ''''
-    SQT: ''''
-    APOSTROPHE: ''''
-    APOS: ''''
-    DOUBLE_QUOTES: '"'
-    DQT: '"'
-    COMMA: ','
-    LESS_THAN: <
-    LT: <
-    PERIOD: .
-    DOT: .
-    GREATER_THAN: '>'
-    GT: '>'
-    LEFT_BRACKET: '['
-    LBKT: '['
-    LEFT_BRACE: '{'
-    LBRC: '{'
-    RIGHT_BRACKET: ']'
-    RBKT: ']'
-    RIGHT_BRACE: '}'
-    RBRC: '}'
-    GRAVE: '`'
-    TILDE: '~'
-    NON_US_HASH: '#'
-    NUHS: '#'
-    TILDE2: '~'
-    TAB: '⇥'
-    LSHFT: '$$phosphor:regular/arrow-fat-up$$'
-    RSHFT: '$$phosphor:regular/arrow-fat-up$$'
-    LGUI: '$$phosphor:regular/command$$'
-    RGUI: '$$phosphor:regular/command$$'
-    LALT: '$$phosphor:regular/option$$'
-    RALT: '$$phosphor:regular/option$$'
-    LCTRL: '$$phosphor:regular/control$$'
-    RCTRL: '$$phosphor:regular/control$$'
-    RET: '$$phosphor:regular/arrow-elbow-down-left$$'
-    RETURN: '$$phosphor:regular/arrow-elbow-down-left$$'
-    ESC: 'Esc'
-    SPACE: '␣'
-    UP: '$$phosphor:regular/arrow-up$$'
-    DOWN: '$$phosphor:regular/arrow-down$$'
-    LEFT: '$$phosphor:regular/arrow-left$$'
-    RIGHT: '$$phosphor:regular/arrow-right$$'
-    PG_UP: '$$phosphor:regular/arrow-line-up$$'
-    PG_DN: '$$phosphor:regular/arrow-line-down$$'
-    HOME: '↖'
-    END: '↘'
-    BSPC: '⌫' # 'Bspc'
-    DEL: '⌦' # 'Del'
-    INS: 'Ins'
-    BT_CLR: '$$phosphor:regular/bluetooth-x$$'
-    BT_SEL: '$$phosphor:regular/bluetooth$$'
-    C_MUTE: '$$phosphor:regular/speaker-slash$$'
-    C_NEXT: '$$phosphor:regular/fast-forward$$'
-    C_PP: '$$phosphor:regular/play-pause$$'
-    C_PREV: '$$phosphor:regular/rewind$$'
-    C_VOL_DN: '$$phosphor:regular/speaker-low$$'
-    C_VOL_UP: '$$phosphor:regular/speaker-high$$'
-    K_CANCEL: '$$phosphor:regular/prohibit$$'
-  zmk_combos:
-    combo_cpgrk: {"align": "top", "offset": 0.1}
-    combo_cut: {"align": "bottom", "offset": -0.2}
-    combo_grk: {"align": "top", "offset": 0.9}
-    combo_mouse: {"align": "top", "offset": 0.3}
+  zmk_additional_includes:
+    - "modules/zmk/helpers/include"
+    - "./_build/zmk-config/modules/zmk/helpers/include"
+
+  zmk_preamble: |
+    #include <zmk-helpers/key-labels/34.h>
+    #define CONFIG_WIRELESS
+
   raw_binding_map:
-    "&kp LC(INS)": '$$phosphor:regular/copy$$'
-    "&kp LS(INS)": '$$phosphor:regular/clipboard-text$$'
-    "&kp LC(X)": '$$phosphor:regular/scissors$$'
-    "&bootloader": '$$phosphor:regular/binary$$'
-    "&caps_word": 'caps word'
-    "&dot_spc": '.␣'
-    "&key_repeat 0": '$$phosphor:regular/repeat-once$$'
-    "&mkp LCLK": '$$phosphor:regular/mouse-left-click$$'
-    "&mkp MB4": '$$phosphor:regular/rewind-circle$$'
-    "&mkp MB5": '$$phosphor:regular/fast-forward-circle$$'
-    "&mkp MCLK": '$$phosphor:regular/mouse-middle-click$$'
-    "&mkp RCLK": '$$phosphor:regular/mouse-right-click$$'
-    "&mmv MOVE_DOWN": '$$phosphor:regular/arrow-fat-lines-down$$'
-    "&mmv MOVE_LEFT": '$$phosphor:regular/arrow-fat-lines-left$$'
-    "&mmv MOVE_RIGHT": '$$phosphor:regular/arrow-fat-lines-right$$'
-    "&mmv MOVE_UP": '$$phosphor:regular/arrow-fat-lines-up$$'
-    "&msc SCRL_DOWN": '$$phosphor-mouse-scroll-down$$'
-    "&msc SCRL_LEFT": '$$phosphor-mouse-scroll-left$$'
-    "&msc SCRL_RIGHT": '$$phosphor-mouse-scroll-right$$'
-    "&msc SCRL_UP": '$$phosphor-mouse-scroll-up$$'
-    "&num_dance": 'num dance'
-    "&out OUT_TOG": '$$phosphor:regular/usb$$'
-    "&smart_mouse": '$$phosphor:regular/mouse$$'
+    "&sys_reset": Reset
+    "&bootloader": Boot
+    "&caps_word": Caps Word
+
+    "&bt BT_SEL 0": BT0
+    "&bt BT_SEL 1": BT1
+    "&bt BT_SEL 2": BT2
+    "&bt BT_SEL 3": BT3
+    "&bt BT_SEL 4": BT4
+
+    "&kp LG(C)": '$$phosphor:regular/copy$$'
+    "&kp LG(X)": '$$phosphor:regular/scissors$$'
+    "&kp LG(V)": '$$phosphor:regular/clipboard-text$$'
+
     "&swapper": '$$phosphor:regular/swap$$'
-    "&sys_reset": '$$phosphor:regular/device-rotate$$'
+    "&dot_spc": '.␣'
+    "&num_dance": 'num dance'
+    "&magic_shift": { "t": Magic, "h": "Shift" }
+    "&smart_mouse": '$$phosphor:regular/mouse$$'
+
+    "&out OUT_TOG": '$$phosphor:regular/usb$$'
     "&uc_shift 0": 'uc⇑'
     "&win_sleep": '$$phosphor:regular/bed$$'
     "&curr_euro": "€"
     "&curr_pound": "£"
     "&sym_le": '≤'
     "&sym_ge": '≥'
-    "&de_ae_lower": 'ä'
-    "&de_ae_upper": 'Ä'
-    "&de_eszett_lower": 'ß'
-    "&de_eszett_upper": 'ẞ'
-    "&de_oe_lower": 'ö'
-    "&de_oe_upper": 'Ö'
-    "&de_ue_lower": 'ü'
-    "&de_ue_upper": 'Ü'
-    "&el_alpha_lower": 'α'
-    "&el_alpha_upper": 'Α'
-    "&el_beta_lower": 'β'
-    "&el_beta_upper": 'Β'
-    "&el_chi_lower": 'χ'
-    "&el_chi_upper": 'Χ'
-    "&el_delta_lower": 'δ'
-    "&el_delta_upper": 'Δ'
-    "&el_epsilon_lower": 'ε'
-    "&el_epsilon_upper": 'Ε'
-    "&el_eta_lower": 'η'
-    "&el_eta_upper": 'Η'
-    "&el_final_sigma_lower": 'ς'
-    "&el_final_sigma_upper": 'Σ'
-    "&el_gamma_lower": 'γ'
-    "&el_gamma_upper": 'Γ'
-    "&el_iota_lower": 'ι'
-    "&el_iota_upper": 'Ι'
-    "&el_kappa_lower": 'κ'
-    "&el_kappa_upper": 'Κ'
-    "&el_lambda_lower": 'λ'
-    "&el_lambda_upper": 'Λ'
-    "&el_mu_lower": 'μ'
-    "&el_mu_upper": 'Μ'
-    "&el_nu_lower": 'ν'
-    "&el_nu_upper": 'Ν'
-    "&el_omega_lower": 'ω'
-    "&el_omega_upper": 'Ω'
-    "&el_omikron_lower": 'ο'
-    "&el_omikron_upper": 'Ο'
-    "&el_phi_lower": 'φ'
-    "&el_phi_upper": 'Φ'
-    "&el_pi_lower": 'π'
-    "&el_pi_upper": 'Π'
-    "&el_psi_lower": 'ψ'
-    "&el_psi_upper": 'Ψ'
-    "&el_rho_lower": 'ρ'
-    "&el_rho_upper": 'Ρ'
-    "&el_sigma_lower": 'σ'
-    "&el_sigma_upper": 'Σ'
-    "&el_tau_lower": 'τ'
-    "&el_tau_upper": 'Τ'
-    "&el_theta_lower": 'θ'
-    "&el_theta_upper": 'Θ'
-    "&el_upsilon_lower": 'υ'
-    "&el_upsilon_upper": 'Υ'
-    "&el_xi_lower": 'ξ'
-    "&el_xi_upper": 'Ξ'
-    "&el_zeta_lower": 'ζ'
-    "&el_zeta_upper": 'Ζ'
+
+    "&hml LS(LALT)TAB": Tab
+    "&hm_combo_ldr": Leader
+    "&hm_combo_ldrsh": Shift+Leader
+    "&hm_combo_lpar": { "t": "(", "right": "<" }
+    "&hm_combo_rpar": { "t": ")", "right": ">" }
+    "&kp LBKT": { "t": "[", "right": "{" }
+    "&kp RBKT": { "t": "]", "right": "}" }
+
+    "&mmv MOVE_UP": '$$phosphor:regular/arrow-fat-lines-up$$'
+    "&mmv MOVE_DOWN": '$$phosphor:regular/arrow-fat-lines-down$$'
+    "&mmv MOVE_LEFT": '$$phosphor:regular/arrow-fat-lines-left$$'
+    "&mmv MOVE_RIGHT": '$$phosphor:regular/arrow-fat-lines-right$$'
+
+    "&msc SCRL_UP": '$$phosphor-mouse-scroll-up$$'
+    "&msc SCRL_DOWN": '$$phosphor-mouse-scroll-down$$'
+    "&msc SCRL_LEFT": '$$phosphor-mouse-scroll-left$$'
+    "&msc SCRL_RIGHT": '$$phosphor-mouse-scroll-right$$'
+
+    "&mkp LCLK": '$$phosphor:regular/mouse-left-click$$'
+    "&mkp RCLK": '$$phosphor:regular/mouse-right-click$$'
+    "&mkp MCLK": '$$phosphor:regular/mouse-middle-click$$'
+    "&mkp MB4": '$$phosphor:regular/rewind-circle$$'
+    "&mkp MB5": '$$phosphor:regular/fast-forward-circle$$'
+
+  trans_legend: { "t": "", "type": "trans" }
+
+  # preprocess: true
+  # skip_binding_parsing: false
+  # sticky_label: sticky
+  # toggle_label: toggle
+  # tap_toggle_label: tap-toggle
+  # mark_alternate_layer_activators: true
+  # modifier_fn_map:
+  #   left_ctrl: '^'
+  #   right_ctrl: '^'
+  #   left_shift: '⇑'
+  #   right_shift: '⇑'
+  #   left_alt: '⌥'
+  #   right_alt: '⌥'
+  #   left_gui: '⌘'
+  #   right_gui: '⌘'
+  #   keycode_combiner: '{mods}{key}'
+  #   mod_combiner: '{mod_1}{mod_2}'
+  #   special_combinations:
+  #     left_ctrl+left_alt+left_gui+left_shift: Hyper
+  #     left_ctrl+left_alt+left_shift: Meh
+
+  zmk_combos:
+    combo_cut: { align: bottom, offset: -0.15 }
+    combo_ldrsh: { align: right, o: 1.55 }
+
+    combo_mouse: { align: top, offset: 0.3 }
+
+  zmk_keycode_map:
+    TAB: '⇥'
+
+    LALT: '$$phosphor:regular/option$$'
+    RALT: '$$phosphor:regular/option$$'
+    LCTRL: '$$phosphor:regular/control$$'
+    RCTRL: '$$phosphor:regular/control$$'
+    LGUI: '$$phosphor:regular/command$$'
+    RGUI: '$$phosphor:regular/command$$'
+    LSHFT: '$$phosphor:regular/arrow-fat-up$$'
+    RSHFT: '$$phosphor:regular/arrow-fat-up$$'
+
+    BSPC: '⌫' # 'Bspc'
+    DEL: '⌦' # 'Del'
+    ESC: 'Esc'
+    RET: '$$phosphor:regular/arrow-elbow-down-left$$'
+    RETURN: '$$phosphor:regular/arrow-elbow-down-left$$'
+    SPACE: '␣'
+
+    PG_UP: '$$phosphor:regular/arrow-line-up$$'
+    PG_DN: '$$phosphor:regular/arrow-line-down$$'
+    INS: 'Ins'
+    HOME: '↖'
+    END: '↘'
+
+    UP: '$$phosphor:regular/arrow-up$$'
+    DOWN: '$$phosphor:regular/arrow-down$$'
+    LEFT: '$$phosphor:regular/arrow-left$$'
+    RIGHT: '$$phosphor:regular/arrow-right$$'
+
+    C_MUTE: '$$phosphor:regular/speaker-slash$$'
+    C_PP: '$$phosphor:regular/play-pause$$'
+    C_VOL_UP: '$$phosphor:regular/speaker-high$$'
+    C_VOL_DN: '$$phosphor:regular/speaker-low$$'
+    C_NEXT: '$$phosphor:regular/fast-forward$$'
+    C_PREV: '$$phosphor:regular/rewind$$'
+    K_CANCEL: '$$phosphor:regular/prohibit$$'
+
+    # defaults
+    AMPERSAND: "&"
+    AMPS: "&"
+    APOS: "'"
+    APOSTROPHE: "'"
+    ASTERISK: "*"
+    ASTRK: "*"
+    AT: "@"
+    AT_SIGN: "@"
+    BACKSLASH: \
+    BSLH: \
+    CARET: ^
+    COLON: ":"
+    COMMA: ","
+    DLLR: $
+    DOLLAR: $
+    DOT: .
+    DOUBLE_QUOTES: '"'
+    DQT: '"'
+    EQUAL: "="
+    EXCL: "!"
+    EXCLAMATION: "!"
+    FSLH: /
+    GRAVE: "`"
+    GREATER_THAN: ">"
+    GT: ">"
+    HASH: "#"
+    LBKT: "["
+    LBRC: "{"
+    LEFT_BRACE: "{"
+    LEFT_BRACKET: "["
+    LEFT_PARENTHESIS: (
+    LESS_THAN: <
+    LPAR: (
+    LT: <
+    MINUS: "-"
+    NON_US_BACKSLASH: \
+    NON_US_BSLH: "|"
+    NON_US_HASH: "#"
+    NUHS: "#"
+    PERCENT: "%"
+    PERIOD: .
+    PIPE: "|"
+    PIPE2: "|"
+    PLUS: +
+    POUND: "#"
+    PRCNT: "%"
+    QMARK: "?"
+    QUESTION: "?"
+    RBKT: "]"
+    RBRC: "}"
+    RIGHT_BRACE: "}"
+    RIGHT_BRACKET: "]"
+    RIGHT_PARENTHESIS: )
+    RPAR: )
+    SEMI: ;
+    SEMICOLON: ;
+    SINGLE_QUOTE: "'"
+    SLASH: /
+    SQT: "'"
+    STAR: "*"
+    TILDE: "~"
+    TILDE2: "~"
+    UNDER: _
+    UNDERSCORE: _
+
+draw_config:
+  append_colon_to_layer_header: false
+  dark_mode: auto
+  footer_text: "quatauta/zmk-config"
+
+  key_w: 72.0
+  key_h: 68.0
+  # split_gap: 0.0
+  # combo_w: 32.0
+  # combo_h: 32.0
+  # key_rx: 6.0
+  # key_ry: 6.0
+  # n_columns: 1
+  separate_combo_diagrams: false
+  # combo_diagrams_scale: 2
+  inner_pad_w: 4.0
+  inner_pad_h: 12.0
+  # outer_pad_w: 10.0
+  # outer_pad_h: 20.0
+  # line_spacing: 1.1
+  # arc_radius: 6.0
+  # small_pad: 2.0
+  # legend_rel_x: 0.0
+  # legend_rel_y: 0.0
+  # key_side_pars: { rel_x: 0, rel_y: 4, rel_w: 12, rel_h: 12, rx: 4, ry: 4 }
+  # svg_extra_style: |
+  #   rect.combo, rect.combo-separate { fill: #ccddff50; }
+  #   svg.keymap { font-family: "Fira Code", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; }
+  #   text { font-size: 1.2rem; }
+  #   text.combo { font-size: 0.9rem; }
+  # shrink_wide_legends: 10
+  # glyph_tap_size: 20
+  # glyph_hold_size: 12
+  # glyph_shifted_size: 12
+
+  glyphs:
+    phosphor-mouse-scroll-up: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg" ><path d="M 144,16 H 112 C 76.669768,16.038579 48.038579,44.669768 48,80 v 96 c 0.03858,35.33023 28.669768,63.96142 64,64 h 32 c 35.33023,-0.0386 63.96142,-28.66977 64,-64 V 80 C 207.96142,44.669768 179.33023,16.038579 144,16 Z m 48,160 c -0.0276,26.49824 -21.50176,47.97244 -48,48 H 112 C 85.501756,223.97244 64.027559,202.49824 64,176 V 80 C 64.02756,53.501756 85.501756,32.027559 112,32 h 32 c 26.49824,0.02756 47.97244,21.501756 48,48 z M 128,55.994141 c -2.04877,0 -4.0977,0.781509 -5.66016,2.345703 l -23.999996,24 c -3.125931,3.125931 -3.125928,8.194383 0,11.320312 3.125926,3.125928 8.194386,3.125931 11.320316,0 L 120,83.310547 h 0.002 V 192.00586 c 0,4.41827 3.58173,8 8,8 4.41828,0 8,-3.58173 8,-8 V 83.3125 l 10.33789,10.347656 c 3.12593,3.125931 8.19439,3.125928 11.32032,0 3.12592,-3.125929 3.12592,-8.194381 0,-11.320312 l -24,-24 C 132.0977,56.77565 130.04877,55.994141 128,55.994141 Z" /></svg>
+    phosphor-mouse-scroll-down: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M 144,240 H 112 C 76.669768,239.96142 48.038579,211.33023 48,176 V 80 C 48.03858,44.66977 76.669768,16.03858 112,16 h 32 c 35.33023,0.0386 63.96142,28.66977 64,64 v 96 c -0.0386,35.33023 -28.66977,63.96142 -64,64 z M 192,80 C 191.9724,53.50176 170.49824,32.02756 144,32 H 112 C 85.501756,32.02756 64.027559,53.50176 64,80 v 96 c 0.02756,26.49824 21.501756,47.97244 48,48 h 32 c 26.49824,-0.0276 47.97244,-21.50176 48,-48 z m -64,120.00586 c -2.04877,0 -4.0977,-0.78151 -5.66016,-2.3457 l -23.999996,-24 c -3.125931,-3.12594 -3.125928,-8.19439 0,-11.32032 3.125926,-3.12592 8.194386,-3.12593 11.320316,0 L 120,172.68945 h 0.002 V 63.99414 c 0,-4.41827 3.58173,-8 8,-8 4.41828,0 8,3.58173 8,8 V 172.6875 l 10.33789,-10.34766 c 3.12593,-3.12593 8.19439,-3.12592 11.32032,0 3.12592,3.12593 3.12592,8.19438 0,11.32032 l -24,24 c -1.56251,1.56419 -3.61144,2.3457 -5.66021,2.3457 z" /></svg>
+    phosphor-mouse-scroll-left: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M 112 16 C 76.669803 16.03858 48.03858 44.669805 48 80 L 48 176 C 48.038579 211.33019 76.669803 239.96142 112 240 L 144 240 C 179.33019 239.96142 207.9614 211.33019 208 176 L 208 80 C 207.96142 44.669805 179.33019 16.0386 144 16 L 112 16 z M 112 32 L 144 32 C 170.49821 32.02756 191.9724 53.501786 192 80 L 192 176 C 191.97244 202.49821 170.49821 223.9724 144 224 L 112 224 C 85.501782 223.97244 64.02756 202.49821 64 176 L 64 80 C 64.027559 53.501786 85.501782 32.02756 112 32 z M 120 95.996094 C 117.95141 95.996093 115.90281 96.776881 114.33984 98.339844 L 90.339844 122.33984 C 88.775656 123.9023 87.994141 125.95123 87.994141 128 C 87.994141 130.04877 88.775606 132.09765 90.339844 133.66016 L 114.33984 157.66016 C 117.46578 160.78606 122.53423 160.78606 125.66016 157.66016 C 128.78606 154.53423 128.78607 149.46577 125.66016 146.33984 L 115.3125 136.00195 L 160.00586 136.00195 C 164.42411 136.00195 168.00586 132.42023 168.00586 128.00195 C 168.00586 123.5837 164.42411 120.00195 160.00586 120.00195 L 115.31055 120.00195 L 115.31055 120 L 125.66016 109.66016 C 128.78607 106.53423 128.78606 101.46577 125.66016 98.339844 C 124.09719 96.776886 122.04859 95.996095 120 95.996094 z " /></svg>
+    phosphor-mouse-scroll-right: <svg viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg" ><path d="m 144,16 c 35.3302,0.03858 63.96142,28.669805 64,64 v 96 c -0.0386,35.33019 -28.6698,63.96142 -64,64 H 112 C 76.66981,239.96142 48.0386,211.33019 48,176 V 80 C 48.03858,44.669805 76.66981,16.0386 112,16 Z m 0,16 H 112 C 85.50179,32.02756 64.0276,53.501786 64,80 v 96 c 0.02756,26.49821 21.50179,47.9724 48,48 h 32 c 26.49822,-0.0276 47.97244,-21.50179 48,-48 V 80 C 191.97244,53.501786 170.49822,32.02756 144,32 Z m -8,63.996094 c 2.04859,-10e-7 4.09719,0.780787 5.66016,2.34375 l 24,23.999996 c 1.56418,1.56246 2.3457,3.61139 2.3457,5.66016 0,2.04877 -0.78147,4.09765 -2.3457,5.66016 l -24,24 c -3.12594,3.1259 -8.19439,3.1259 -11.32032,0 -3.1259,-3.12593 -3.12591,-8.19439 0,-11.32032 L 140.6875,136.00195 H 95.99414 c -4.41825,0 -8,-3.58172 -8,-8 0,-4.41825 3.58175,-8 8,-8 h 44.69531 V 120 l -10.34961,-10.33984 c -3.12591,-3.12593 -3.1259,-8.19439 0,-11.320316 1.56297,-1.562958 3.61157,-2.343749 5.66016,-2.34375 z" /></svg>

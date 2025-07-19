@@ -9,28 +9,19 @@ _main() {
   export PATH="${PATH}:${HOME}/.local/bin"
 
   set -x
-  apk add --quiet pipx
+  export DEBIAN_FRONTEND=noninteractive
+  rm -f /etc/apt/apt.conf.d/docker-clean
+  apt-get -qq -y update                   &>/dev/null
+  # apt-get -qq -y upgrade                  &>/dev/null
+  apt-get -qq -y install python3-dev pipx &>/dev/null
   mkdir -p "${HOME}/.local/bin"
   pipx install --quiet keymap-drawer
 
   if [[ $# -gt 0 ]]; then
     "${HOME}/.local/bin/keymap" "${@}" # -c keymap-drawer.config.yaml draw keymap-drawer.keymap.yaml
   else
-    (
-      awk -vFS='[ "]+' '/#include "zmk-helpers/ { print $2 }' config/kyria_rev3.keymap |
-      xargs -rt -I HELPER cat _build/zmk-config/modules/helpers/include/HELPER
-      cat config/mouse.dtsi
-      cat config/kyria_rev3.keymap
-      cat config/combos.dtsi
-    ) > /root/keymap
-    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml parse -b keymap-drawer.keymap.yaml -c 12 -z /root/keymap -o /root/keymap.yaml
-    (
-      echo "layout:"
-      echo "  qmk_keyboard: splitkb/kyria/rev3"
-      echo "  qmk_layout: LAYOUT_split_3x6_5"
-      cat /root/keymap.yaml
-    ) > /root/keymap2.yaml
-    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw -o /app/keymap.svg /root/keymap2.yaml
+    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml parse -z config/kyria_rev3.keymap -b keymap-drawer.keymap.yaml -c 12 -o /root/keymap.yaml
+    "${HOME}/.local/bin/keymap" -c keymap-drawer.config.yaml draw /root/keymap.yaml -o /app/keymap.svg
   fi
 }
 
@@ -56,9 +47,10 @@ _exec_in_container() {
     exec docker run --rm -it --pull=always \
       -v .:/app \
       -v ./_keymap-drawer:/root \
-      -v ./_keymap-drawer-apk-cache:/etc/apk/cache \
-      alpine:latest \
-      sh "/app/$(basename "$0")" "${@}"
+      -v ./_keymap-drawer-apt-cache:/var/cache/apt \
+      -v ./_keymap-drawer-apt-lib:/var/lib/apt \
+      ubuntu:latest \
+      bash "/app/$(basename "$0")" "${@}"
     exit
   fi
 }
