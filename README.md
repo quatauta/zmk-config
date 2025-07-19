@@ -9,7 +9,7 @@ transitions to traditional keyboards.
 
 ## Keymap
 
-![Kyria split keyboard keymap](keymap.svg)
+![Kyria split keyboard keymap](draw/keymap.svg)
 
 ## Selection criteria for my keyboard
 

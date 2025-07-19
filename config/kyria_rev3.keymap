@@ -174,14 +174,13 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
 // misc aliases
 #define CANCEL      &kp K_CANCEL         // cancel caps-word, num-word and smart-mouse
-#define DSK_PREV    &hmr LCTRL LC(LEFT)  // previous desktop
-#define DSK_NEXT    &hmr LALT  LC(RIGHT) // next     desktop
+#define DSK_PREV    &kp LC(LEFT)         // previous desktop
+#define DSK_NEXT    &kp LC(RIGHT)        // next     desktop
 #define DSK_W_PREV  &kp LC(LA(LEFT))     // window to previous desktop
 #define DSK_W_NEXT  &kp LC(LA(RIGHT))    // window to next     desktop
 #define PIN_WIN     &kp LG(LC(LS(Q)))    // pin window across desktops
 #define PIN_APP     &kp LG(LC(LS(A)))    // pin application across desktops
 #define DSK_MGR     &kp LA(GRAVE)        // desktop manager
-#define VOL_DOWN    &hmr RSHFT C_VOL_DN
 
 ZMK_UNICODE_SINGLE(sym_le, N2, N2, N6, N4) // ≤ (less-than or equal to)
 ZMK_UNICODE_SINGLE(sym_ge, N2, N2, N6, N5) // ≥ (greater-than or equal to)
@@ -210,8 +209,8 @@ ___          ___           ___           ___           ___           ___        
 
 ZMK_LAYER(fn,
 //───────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-___          &kp F12       &kp F7        &kp F8        &kp F9        ___                                                                    &kp C_BRI_UP  &kp C_PREV   &kp C_VOL_UP   &kp C_NEXT    ___           ___
-___          &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 ___                                                                    &kp C_BRI_DN  DSK_PREV     VOL_DOWN       DSK_NEXT      ___           ___
+___          &kp F12       &kp F7        &kp F8        &kp F9        ___                                                                    &kp C_BRI_UP  &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___           ___
+___          &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 ___                                                                    &kp C_BRI_DN  DSK_PREV      &kp C_VOL_DN  DSK_NEXT      ___           ___
 ___          &kp F10       &kp F1        &kp F2        &kp F3        ___           ___           ___            ___           ___           ___           DSK_W_PREV    ___           DSK_W_NEXT    ___           ___
                                          ___           ___           ___           ___           ___            ___           &kp C_MUTE    &kp C_PP      ___           ___
 //                                       ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
