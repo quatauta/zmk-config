@@ -2,13 +2,12 @@
 #include "zmk-helpers/key-labels/kyria.h"
 
 #include <behaviors.dtsi>
-#include <behaviors/num_word.dtsi> // requires auto-layer module
+#include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
+#include <behaviors/unicode.dtsi> // Requires zmk-unicode module.
+#include <zmk-helpers/helper.h> // Requires zmk-helpers module.
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "zmk-helpers/helper.h"
-#include "zmk-helpers/unicode-chars/currency.dtsi"
-#include "zmk-helpers/unicode-chars/german.dtsi"
 
 #define DEF 0
 #define NAV 1
@@ -115,10 +114,10 @@ ZMK_ADAPTIVE_KEY(
 };
 
 // Tap: num-word | double-tap: sticky num-layer | Hold: num-layer.
-#define SMART_NUM &smart_num 3 0
+#define SMART_NUM &smart_num NUM 0
 ZMK_HOLD_TAP(smart_num, bindings = <&mo>, <&num_dance>; flavor = "balanced";
              tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(num_dance, bindings = <&num_word 3>, <&sl 3>;
+ZMK_TAP_DANCE(num_dance, bindings = <&num_word NUM>, <&sl NUM>;
               tapping-term-ms = <200>;)
 
 // Smart-mouse, requires tri-state module.
@@ -174,20 +173,21 @@ ZMK_MACRO(leader_sft, bindings = <&sk LSHFT &leader>;)
 
 // misc aliases
 #define CANCEL      &kp K_CANCEL         // cancel caps-word, num-word and smart-mouse
-#define DSK_PREV    &kp LC(LEFT)         // previous desktop
-#define DSK_NEXT    &kp LC(RIGHT)        // next     desktop
-#define DSK_W_PREV  &kp LC(LA(LEFT))     // window to previous desktop
-#define DSK_W_NEXT  &kp LC(LA(RIGHT))    // window to next     desktop
-#define PIN_WIN     &kp LG(LC(LS(Q)))    // pin window across desktops
-#define PIN_APP     &kp LG(LC(LS(A)))    // pin application across desktops
-#define DSK_MGR     &kp LA(GRAVE)        // desktop manager
+#define DSK_PREV    &kp LC(LEFT)         // Previous desktop
+#define DSK_NEXT    &kp LC(RIGHT)        // Next     desktop
+#define DSK_W_PREV  &kp LC(LA(LEFT))     // Window to previous desktop
+#define DSK_W_NEXT  &kp LC(LA(RIGHT))    // Window to next     desktop
+#define PIN_WIN     &kp LG(LC(LS(Q)))    // Pin window across desktops
+#define PIN_APP     &kp LG(LC(LS(A)))    // Pin application across desktops
+#define DSK_MGR     &kp LA(GRAVE)        // Desktop manager
+#define VOL_DOWN    &hmr RSHFT C_VOL_DN
 
 ZMK_UNICODE_SINGLE(sym_le, N2, N2, N6, N4) // ≤ (less-than or equal to)
 ZMK_UNICODE_SINGLE(sym_ge, N2, N2, N6, N5) // ≥ (greater-than or equal to)
 
 /* Keymap */
 
-ZMK_CONDITIONAL_LAYER(sys, 2 3, 4)  // FN + NUM --> SYS
+ZMK_CONDITIONAL_LAYER(sys, FN NUM, SYS) // FN + NUM --> SYS.
 
 ZMK_LAYER(base,
 //───────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                        ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -243,4 +243,4 @@ ___          ___           ___           ___           ___           ___        
 //                                       ╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯╰─────────────┴─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
-/* vim: set ft=c tw=174: */
+/* vim: set ft=c tw=226: */
