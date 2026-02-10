@@ -49,13 +49,15 @@ _west_compile() {
   local timestamp="$3"
   local board="$4"
   local shield="$5"
+  local snippet="$6"
+  local cmake_args="$7"
 
   local build_dir="$(realpath "${base_dir}/../${board}-${shield}")"
   local artifacts_dir="/_firmware/${timestamp}"
   local artifact_name="zmk.${timestamp}.${board}.${shield}"
 
   mkdir -pv "${build_dir}" "${artifacts_dir}"
-  west build -s zmk/app -d "${build_dir}" -b "${board}" -- -DZMK_CONFIG="${base_dir}/${config_path}" -DSHIELD="${shield}" ${zmk_load_arg}
+  west build -s zmk/app -d "${build_dir}" -b "${board}" -S "${snippet}" -- -DZMK_CONFIG="${base_dir}/${config_path}" -DSHIELD="${shield}" ${zmk_load_arg} ${cmake_args}
 
   # cp "${build_dir}/zephyr/.config" "${artifacts_dir}/${artifact_name}.Kconfig"
   # cp "${build_dir}/zephyr/zephyr.dts" "${artifacts_dir}/${artifact_name}.zephyr.dts"
