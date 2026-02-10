@@ -7,6 +7,11 @@ _main() {
 
   cd "$(dirname "$0")" || exit 1
 
+  echo 'Binary::apt::APT::Keep-Downloaded-Packages "true";' >>/etc/apt/apt.conf.d/cache
+  rm /etc/apt/apt.conf.d/docker-clean
+  apt -qq update        &>/dev/null
+  apt -qq install -y yq &>/dev/null
+
   project_dir="$(realpath .)"
   base_dir="/_build/zmk-config"
   config_path="config"
@@ -23,10 +28,9 @@ _main() {
 
   _west_prepare "${base_dir}" "${config_path}"
 
-  grep -v '^\s*#' "${project_dir}/build.yaml" |
-  awk -vRS='  - ' '/board:/ { print $2, $4 }' |
-  while read -r board shield; do
-    _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}"
+  yq -r '.include[] | [.board, .shield, .snippet, .cmake_args] | join(" ")' "${project_dir}/build.yaml" |
+  while read -r board shield snippet cmake_args; do
+    _west_compile "${base_dir}" "${config_path}" "${timestamp}" "${board}" "${shield}" "${snippet}" "${cmake_args}"
   done
 
   echo
@@ -87,6 +91,8 @@ _exec_in_container() {
       -v .:/app:ro \
       -v ./_build:/_build \
       -v ./_firmware:/_firmware \
+      -v ./_build_apt/cache:/var/cache/apt \
+      -v ./_build_apt/lib:/var/lib/apt \
       zmkfirmware/zmk-build-arm:3.5-branch \
       "/app/$(basename "$0")" "${@}"
     exit
