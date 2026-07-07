@@ -1,10 +1,10 @@
 ---
 include:
-  # - board: nice_nano_v2
+  # - board: nice_nano@2.0.0//zmk
   #   shield: settings_reset
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: kyria_rev3_left
     snippet: studio-rpc-usb-uart
     cmake_args: -DCONFIG_ZMK_STUDIO=y
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0//zmk
     shield: kyria_rev3_right

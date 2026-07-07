@@ -56,9 +56,9 @@ _west_compile() {
   local snippet="$6"
   local cmake_args="$7"
 
-  local build_dir="$(realpath "${base_dir}/../${board}-${shield}")"
+  local build_dir="$(realpath -m "${base_dir}/../$(echo "${board}-${shield}" | tr '/@' '__')")"
   local artifacts_dir="/_firmware/${timestamp}"
-  local artifact_name="zmk.${timestamp}.${board}.${shield}"
+  local artifact_name="zmk.${timestamp}.$(echo "${board}.${shield}" | tr '/@' '__')"
 
   mkdir -pv "${build_dir}" "${artifacts_dir}"
   west build -s zmk/app -d "${build_dir}" -b "${board}" -S "${snippet}" -- -DZMK_CONFIG="${base_dir}/${config_path}" -DSHIELD="${shield}" ${zmk_load_arg} ${cmake_args}
@@ -93,7 +93,7 @@ _exec_in_container() {
       -v ./_firmware:/_firmware \
       -v ./_build_apt/cache:/var/cache/apt \
       -v ./_build_apt/lib:/var/lib/apt \
-      zmkfirmware/zmk-build-arm:3.5-branch \
+      zmkfirmware/zmk-build-arm:4.1-branch \
       "/app/$(basename "$0")" "${@}"
     exit
   fi
