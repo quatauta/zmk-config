@@ -15,11 +15,12 @@
 # $ west update
 # $ west zephyr-export
 #
+# This mainifest is maintained using pin-west. Run `pin-west bump` to update
+# all packages.
 ---
 manifest:
   defaults:
     remote: urob
-    # revision: v0.3 # Pin ZMK version
 
   remotes:
     - name: urob
@@ -30,44 +31,86 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 0331b7d16e80954b807917f9323e59ffc1e3b626 # main (4/19/2026)
+      revision: 4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85 # main (2026-10-19)
       import: app/west.yml
 
     # ZMK modules
     - name: zmk-adaptive-key
       path: modules/zmk/adaptive-key
-      revision: 18cc2795a64ccb394d1a7b7d591a5bfe3f25924b # main (4/19/2026)
+      revision: e987227d625e8863343baf16bd11ff90310482a5 # main (2026-10-19)
     - name: zmk-auto-layer
       path: modules/zmk/auto-layer
-      revision: dfa7c695ffde41ef8064245453595d50e198ae1d # main (4/19/2026)
+      revision: b50d514219c5ad61198f9a8be137c59d0674b11c # main (2026-10-19)
     - name: zmk-helpers
       path: modules/zmk/helpers
-      revision: 0b9e9d1dd9e86f70b4c8c2b0fab55c4f90c9d2e3 # main (4/19/2026)
+      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98 # main (2026-10-19)
     - name: zmk-leader-key
       path: modules/zmk/leader-key
-      revision: 749f7faf65cc4105c82fbe64cfaa7e09a8a63605 # main (4/19/2026)
+      revision: 4745294d5f2bc12bbdf91471dd85bfbdbb35c47d # main (2026-10-19)
     - name: zmk-tri-state
       path: modules/zmk/tri-state
-      revision: 2007896c6d5bfb519e8babccf8633841c5647d8b # main (4/19/2026)
+      revision: c08969627245adeddbcdb6dfc1a4c167c04160e2 # main (2026-10-19)
     - name: zmk-unicode
       path: modules/zmk/unicode
-      revision: 1a6dbc797a46c4a61c3c71a7a9d013a5d5aee49e # main (4/19/2026)
+      revision: 6ce21267e497e20ff9e05da16d4eefcdd3e89190 # main (2026-10-19)
 
-    # Only source necessary Zephyr modules. Remove this entire section to restore
-    # the default (needed for less common hardware).
+    # Avoid downloading GBs of unused Zephyr modules. Remove this section to
+    # restore the default (needed for less common hardware).
     - name: zephyr
       remote: zmkfirmware
-      revision: v4.1.0+zmk-fixes
+      revision: 10ba6d0cb38bc3d258775d27982f707599320085 # v4.1.0+zmk-fixes (2026-08-18)
       clone-depth: 1
       import:
         name-allowlist:
           - cmsis
           - hal_nordic
           - hal_rpi_pico
-          - hal_stm32
+          - hal_stm32  # imported independently by ZMK
+          - lvgl  # imported independently by ZMK
           - mbedtls
           - nanopb
           - tinycrypt
+
+    # --- imported projects pinned by pin-west; do not edit ---
+    - name: cmsis # via zephyr (west.yml)
+      url: https://github.com/zephyrproject-rtos/cmsis
+      revision: d1b8b20b6278615b00e136374540eb1c00dcabe7
+      path: modules/hal/cmsis
+      groups: [hal]
+    - name: hal_nordic # via zephyr (west.yml)
+      url: https://github.com/zephyrproject-rtos/hal_nordic
+      revision: 37ca068d7b013fb65a2acc9306bffa48a3e72839
+      path: modules/hal/nordic
+      groups: [hal]
+    - name: hal_rpi_pico # via zephyr (west.yml)
+      url: https://github.com/zephyrproject-rtos/hal_rpi_pico
+      revision: 7b57b24588797e6e7bf18b6bda168e6b96374264
+      path: modules/hal/rpi_pico
+      groups: [hal]
+    - name: hal_stm32 # via zmk (app/west.yml)
+      url: https://github.com/zmkfirmware/hal_stm32
+      revision: 4fcc3a3f32abe1c4cb76d9d1cef967728dd03908
+      path: modules/hal/stm32
+      groups: [hal]
+    - name: lvgl # via zmk (app/west.yml)
+      url: https://github.com/zmkfirmware/lvgl
+      revision: f1db87ee98f1810328a8419572fa42a3b5f352ae
+      path: modules/lib/gui/lvgl
+    - name: mbedtls # via zephyr (west.yml)
+      url: https://github.com/zephyrproject-rtos/mbedtls
+      revision: 4952e1328529ee549d412b498ea71c54f30aa3b1
+      path: modules/crypto/mbedtls
+      groups: [crypto]
+    - name: tinycrypt # via zephyr (west.yml)
+      url: https://github.com/zephyrproject-rtos/tinycrypt
+      revision: 1012a3ebee18c15ede5efc8332ee2fc37817670f
+      path: modules/crypto/tinycrypt
+      groups: [crypto]
+    - name: zmk-studio-messages # via zmk (app/west.yml)
+      url: https://github.com/zmkfirmware/zmk-studio-messages
+      revision: 6cb4c283e76209d59c45fbcb218800cd19e9339d
+      path: modules/msgs/zmk-studio-messages
+    # --- end of imported projects ---
 
   self:
     path: config
